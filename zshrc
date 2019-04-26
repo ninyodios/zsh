@@ -8,6 +8,7 @@ export ZSH=/Users/afrontera/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
+#ZSH_THEME="kolo"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -62,6 +63,7 @@ HIST_STAMPS="dd/mm/yyyy"
 plugins=(
   git
   kubectl
+  aws
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -90,10 +92,18 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
 alias cansible="ssh ansible.service.shared.discovery"
+alias k="kubectl"
 
+# gcloud
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+
+# Kubeon
+# https://github.com/jonmosco/kube-ps1
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+PS1='$(kube_ps1)'$PS1
